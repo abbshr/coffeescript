@@ -85,4 +85,5 @@ cakefileDirectory = (dir) ->
   return dir if fs.existsSync path.join dir, 'Cakefile'
   parent = path.normalize path.join dir, '..'
   return cakefileDirectory parent unless parent is dir
-  throw new Error "Cakefile not found in #{process.cwd()}"
+  console.error new Error "Cakefile not found in #{process.cwd()}"
+  process.exit 1
